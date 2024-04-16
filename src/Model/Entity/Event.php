@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace EsgiIw\TpDesignPattern\Model\Entity;
 
 use App\Attribute\AsEntity;
 use App\Repository\EventRepository;
@@ -12,16 +12,11 @@ class Event
     private int $id;
     private string $name;
     private string $description;
-    private string $startDate;
-    private string $endDate;
+    private DateTime $startDate;
+    private DateTime $endDate;
 
 
-    public function __construct(int $id, string $name, string $description, string $startDate, string $endDate) {
-        $this->id = $id;
-        $this->name = $name;
-        $this->description = $description;
-        $this->startDate = $startDate;
-        $this->endDate = $endDate;
+    public function __construct() {
     }
 
     public function getId(): int
@@ -59,43 +54,27 @@ class Event
 
     }
 
-    public function getStartDate(): string
+    public function getStartDate(): DateTime
     {
         return $this->startDate;
     }
 
-    public function setStartDate(string $startDate): static
+    public function setStartDate(DateTime $startDate): static
     {
         $this->startDate = $startDate;
         return $this;
 
     }
 
-    public function getEndDate(): string
+    public function getEndDate(): DateTime
     {
         return $this->endDate;
     }
 
-    public function setEndDate(string $endDate): static
+    public function setEndDate(DateTime $endDate): static
     {
         $this->endDate = $endDate;
         return $this;
 
     }
-
-//    public function toArray(): array
-//    {
-//        return [
-//            'id' => $this->getId(),
-//            'name' => $this->getName(),
-//            'description' => $this->getDescription(),
-//            'startDate' => $this->getStartDate()->format('Y-m-d H:i:s'),
-//            'endDate' => $this->getEndDate()->format('Y-m-d H:i:s'),
-//            'tag' => $this->getTag(),
-//            'capacity' => $this->getCapacity(),
-//            'owner_id' => $this->getOwnerId(),
-//            'fileName' => $this->getFileName(),
-//            'fileSize' => $this->getFileSize()
-//        ];
-//    }
 }

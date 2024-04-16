@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace src\Model\Database;
+namespace EsgiIw\TpDesignPattern\Model\Database;
 
 final class DbConnection
 {

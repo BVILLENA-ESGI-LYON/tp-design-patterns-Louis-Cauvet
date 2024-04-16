@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace src\Model\Mailer;
+namespace EsgiIw\TpDesignPattern\Model\Mailer;
 
 final class MailerConnection
 {
