@@ -20,6 +20,7 @@ echo "\n\n";
 
 // Test du singleton de la connexion au service de mail
 echo "Test Singleton connexion au service de mail :";
+echo "\n";
 $mailerConnection = MailerConnection::getInstance();
 var_dump(spl_object_hash($mailerConnection));
 $mailerConnection2 = MailerConnection::getInstance();

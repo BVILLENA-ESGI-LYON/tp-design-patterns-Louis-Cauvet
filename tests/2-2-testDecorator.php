@@ -21,9 +21,7 @@ echo "Test Décorator Evènement en extérieur :";
 echo "\n";
 $outsideEvent = new OutsideEvent($event, "36 Rue du Peuplier");
 echo $outsideEvent->getLocalization();
-
-echo "\n\n";
-
+echo "\n";
 echo $event->getName();
 echo "\n";
 $outsideEvent->setName("Baignade à la mer");
@@ -35,11 +33,11 @@ echo "Test Décorator Evènement sportif :";
 echo "\n";
 $sportsEvent = new SportsEvent($event, true);
 echo $sportsEvent->getMedicalCertificate();
-
-echo "\n\n";
-
-$sportsEvent->setMedicalCertificate(false);
-echo $sportsEvent->getMedicalCertificate();
+echo "\n";
+echo $sportsEvent->getDescription();
+echo "\n";
+$sportsEvent->setDescription("Une journée de folie dans la chaleur de l'été !");
+echo $sportsEvent->getDescription();
 
 echo "\n\n\n";
 
@@ -47,10 +45,7 @@ echo "Test Décorator Evènement à places limitées :";
 echo "\n";
 $limitedEvent = new LimitedEvent($event, 50);
 echo $limitedEvent->getNbPlaces();
-
-echo "\n\n";
-
-echo $limitedEvent->getDescription();
 echo "\n";
-$limitedEvent->setDescription("Une journée de folie dans la chaleur de l'été !");
-echo $limitedEvent->getDescription();
+$limitedEvent->setNbPlaces(350);
+echo $limitedEvent->getNbPlaces();
+
