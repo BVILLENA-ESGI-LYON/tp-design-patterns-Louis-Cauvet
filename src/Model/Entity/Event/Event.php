@@ -7,7 +7,7 @@ use App\Repository\EventRepository;
 use App\Service\DB\Entity;
 use DateTime;
 
-class Event
+class Event implements EventInterface
 {
     private int $id;
     private string $name;
@@ -75,6 +75,5 @@ class Event
     {
         $this->endDate = $endDate;
         return $this;
-
     }
 }
