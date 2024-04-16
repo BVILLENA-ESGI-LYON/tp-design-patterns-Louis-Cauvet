@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use EsgiIw\TpDesignPattern\Model\Entity\Event;
-use EsgiIw\TpDesignPattern\Adapter\Event\Export\EventJsonExport;
 use EsgiIw\TpDesignPattern\Adapter\Event\Export\EventCsvExport;
+use EsgiIw\TpDesignPattern\Adapter\Event\Export\EventJsonExport;
+use EsgiIw\TpDesignPattern\Model\Entity\Event\Event;
 
 require_once 'vendor/autoload.php';
 
