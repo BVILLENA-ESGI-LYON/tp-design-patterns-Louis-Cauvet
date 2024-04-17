@@ -12,7 +12,6 @@ class User
     private string $firstname;
     private string $lastname;
     private string $email;
-    private string $roles;
 
     public function getId(): int
     {
@@ -55,18 +54,6 @@ class User
     public function setEmail(string $email): static
     {
         $this->email = $email;
-        return $this;
-    }
-
-
-    public function getRoles(): string
-    {
-        return $this->roles;
-    }
-
-    public function setRoles(string $roles): static
-    {
-        $this->roles = $roles;
         return $this;
     }
 }

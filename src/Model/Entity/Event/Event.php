@@ -76,4 +76,5 @@ class Event implements EventInterface
         $this->endDate = $endDate;
         return $this;
     }
+
 }
