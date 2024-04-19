@@ -10,10 +10,14 @@ use EsgiIw\TpDesignPattern\Model\Entity\User\User;
 
 require_once 'vendor/autoload.php';
 
-// Test de la facade
-echo "Test Facade sur les évènements et les utilisateurs : ";
+echo "---------------------------- Tests Facade ----------------------------";
+echo "\n\n";
+
+echo "<<<<<<<<<<< Test de la gestion des utilisateurs et des évènements avec la façade >>>>>>>>>>>";
 echo "\n";
 
+echo "- On construit un tableau d'évènements, et un tableau d'utilisateurs, puis on instancie un contrôleur pour chaque entité en lui passant son tableau respectif en paramètres.";
+echo "\n";
 $tabEvents = [
     (new Event())
         ->setId(1)
@@ -47,23 +51,29 @@ $tabUsers = [
 $eventsController = new EventController($tabEvents);
 $usersController = new UserController($tabUsers);
 
+echo "- On instancie ensuite un repository, en lui passant en paramètres les 2 contrôleurs précédemment créées.";
+echo "\n";
 $repo = new Repository($eventsController, $usersController);
 
+echo "- On récupère le détail de l'évènement que l'on souhaite (ici celui avec l'id 1) grâce à la fonction 'getEventDetail' du repository : ";
+echo "\n";
 var_dump($repo->getEventDetail(1));
 
 echo "\n\n";
 
+echo "- On récupère le détail de l'utilisateur que l'on souhaite (ici celui avec l'id 2) grâce à la fonction 'getUserDetail' du repository : ";
+echo "\n";
 var_dump($repo->getUserDetail(2));
 
 echo "\n\n";
 
-echo "Taille du tableau d'évènements avant suppression : ";
+echo "On regarde la taille du tableau des évènements que gère le contrôleur : ";
 echo "\n";
 var_dump(count($eventsController->getTabEvents()));
 
 echo "\n\n";
 
-$repo->deleteEvent(1);
-echo "Taille du tableau d'évènements après suppression : ";
+echo "On supprime un élément de ce tableau, puis on vérifie que sa taille à bien diminuée : ";
 echo "\n";
+$repo->deleteEvent(1);
 var_dump(count($eventsController->getTabEvents()));

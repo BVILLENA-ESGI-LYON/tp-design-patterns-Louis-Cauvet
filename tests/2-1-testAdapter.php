@@ -8,6 +8,13 @@ use EsgiIw\TpDesignPattern\Model\Entity\Event\Event;
 
 require_once 'vendor/autoload.php';
 
+echo "---------------------------- Tests Adapter ----------------------------";
+echo "\n\n";
+
+echo "<<<<<<<<<<< Test de l'export d'un évènement en JSON' >>>>>>>>>>>";
+echo "\n";
+echo "- On crée un tableau d'évènements : ";
+echo "\n";
 $tabEvents = [
     (new Event())
         ->setId(1)
@@ -30,17 +37,20 @@ $tabEvents = [
         ->setStartDate(new \DateTime('2024-10-28 21:00'))
         ->setEndDate(new \DateTime('2024-10-28 23:30')),
 ];
+var_dump($tabEvents);
 
-// Test de l'adapter de l'export d'un évènement en JSON
-echo "Test Adapter export d'un évènement en JSON :";
+echo "\n\n";
+
+echo "- On crée une instance de 'EventJsonExport' et on applique sa fonction 'convert' sur le tableau pour effectuer sa conversion en JSON : ";
 echo "\n";
 $exportEventJson = new EventJsonExport($tabEvents);
 echo $exportEventJson->convert();
 
 echo "\n\n";
 
-// Test de l'adapter de l'export d'un évènement en CSV
-echo "Test Adapter export d'un évènement en CSV :";
+echo "<<<<<<<<<<< Test de l'export d'un évènement en CSV >>>>>>>>>>>";
+echo "\n";
+echo "- On crée une instance de 'EventCsvExport' et on applique sa fonction 'convert' sur le tableau pour effectuer sa conversion en CSV : ";
 echo "\n";
 $exportEventCsv = new EventCsvExport($tabEvents);
 echo $exportEventCsv->convert();

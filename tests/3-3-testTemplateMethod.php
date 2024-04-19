@@ -10,11 +10,14 @@ use EsgiIw\TpDesignPattern\Model\Entity\User\User;
 
 require_once 'vendor/autoload.php';
 
+echo "---------------------------- Tests Template Method ----------------------------";
+echo "\n\n";
 
-// Test des Template Method
-echo "Test Template Method pour la validation de l'inscription propre à chaque type d'évènement :";
+echo "<<<<<<<<<<< Test de la validation de l'inscription propre à chaque type d'évènement >>>>>>>>>>>";
 echo "\n";
 
+echo "On crée une instance de 'User', et une autre de 'Event', puis une instance de l'entité 'Participation' regroupant les 2 autres :";
+echo "\n";
 $user = (new User())
     ->setId(1)
     ->setFirstname("Louis")
@@ -29,11 +32,18 @@ $event = (new Event())
     ->setEndDate(new \DateTime('2024-08-07 17:30'));
 
 $participation = new Participation($event,$user);
+var_dump($participation);
+echo "\n";
+
+echo "On crée une instance de 'ValidationParticipationSportsEvent', puis un lance la validation avec sa méthode 'startValidation' afin de vérifier (fictivement) si le participant possède un certificat médical :";
+echo "\n";
 
 $validSportsEvent = new ValidationParticipationSportsEvent();
 $validSportsEvent->startValidation($participation);
+echo "\n";
 
-echo "\n\n";
+echo "On crée une instance de 'ValidationParticipationOutsideEvents', puis un lance la validation avec sa méthode 'startValidation' afin de vérifier (fictivement) si le nombre de places restante pour l'évènement est suffisant :";
+echo "\n";
 
 $validOutsideEvent = new ValidationParticipationOutsideEvents();
 $validOutsideEvent->startValidation($participation);

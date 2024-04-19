@@ -10,7 +10,12 @@ use EsgiIw\TpDesignPattern\Logger\Strategy\SendAdminEmailLogStrategy;
 
 require_once 'vendor/autoload.php';
 
-// Test des strategy
+echo "---------------------------- Tests Strategy ----------------------------";
+echo "\n\n";
+
+echo "- On crée une instance de 'LoggerWithStrategies', puis on lui ajoute les différentes stratégie que l'on souhaite mettre en place.";
+echo "\n";
+
 $logger = new LoggerWithStrategies();
 $logger
     ->addStrategy(new FileLogStrategy())
@@ -18,24 +23,25 @@ $logger
     ->addStrategy(new DatabaseLogStrategy())
     ->addStrategy(new SendAdminEmailLogStrategy());
 
-echo "Test Strategy d'un message de debug (doit être enregistré dans le fichier 'debug.log' seulement) :";
+echo "\n";
+echo "<<<<<<<<<<< Test Strategy d'un message de debug (doit être enregistré dans le fichier 'debug.log' seulement) :  >>>>>>>>>>>";
 echo "\n";
 $logger->debug('J\'utilise des strategies !');
 
 echo "\n\n";
 
-echo "Test Strategy d'un message de warning (doit être enregistré dans le fichier de log classique) :";
+echo "<<<<<<<<<<< Test Strategy d'un message de warning (doit être enregistré dans le fichier de log classique) : >>>>>>>>>>>";
 echo "\n";
 $logger->warning('La solution de "logger" n\'est pas entièrement implémentée.');
 
 echo "\n\n";
 
-echo "Test Strategy d'un message d'error (doit être enregistré dans le fichier de log classique et en bdd) :";
+echo "<<<<<<<<<<< Test Strategy d'un message d'error (doit être enregistré dans le fichier de log classique et en bdd) : >>>>>>>>>>>";
 echo "\n";
 $logger->error('L\'extension "pdo" est manquante !');
 
 echo "\n\n";
 
-echo "Test Strategy d'un message critique (doit être enregistré dans le fichier de log classique, en BDD et notifié par mail à l\'administrateur) :";
+echo "<<<<<<<<<<< Test Strategy d'un message critique (doit être enregistré dans le fichier de log classique, en BDD et notifié par mail à l\'administrateur) : >>>>>>>>>>>";
 echo "\n";
 $logger->critical('Les secrets de l\'application sont écrits en dur !.');
